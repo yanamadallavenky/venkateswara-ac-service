@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,75 +49,464 @@
 </script>
 
 <style>
-:root{--black:#111;--gray:#f2f2f2;--darkgray:#333;--white:#fff}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:Arial,Helvetica,sans-serif;color:var(--black);background:#fff;line-height:1.5}
-a{text-decoration:none;color:inherit}
-.container{width:min(1120px,92%);margin:auto}
-header{background:#111;color:#fff;position:sticky;top:0;z-index:10;box-shadow:0 2px 10px #0002}
-.nav{height:72px;display:flex;align-items:center;justify-content:space-between}
-.logo{font-weight:900;font-size:22px;letter-spacing:.5px}
-.logo span{display:block;font-size:11px;letter-spacing:2px}
-nav a{margin-left:24px;font-size:14px;font-weight:700}
-.hero{background:#f5f5f5;padding:72px 0 60px;border-bottom:1px solid #ddd}
-.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
-.kicker{font-size:14px;font-weight:800;letter-spacing:3px;margin-bottom:12px}
-h1{font-size:clamp(42px,6vw,74px);line-height:.95;text-transform:uppercase;margin-bottom:18px}
-.hero h1 span{display:block}
-.tagline{font-size:22px;font-style:italic;margin-bottom:26px}
-.buttons{display:flex;gap:12px;flex-wrap:wrap}
-.btn{display:inline-block;padding:14px 22px;border-radius:6px;font-weight:800;border:2px solid #111}
-.btn.dark{background:#111;color:#fff}
-.btn.light{background:#fff}
-.hero-card{background:#111;color:#fff;padding:30px;border-radius:12px}
-.hero-card h2{font-size:25px;margin-bottom:18px}
-.hero-card p{margin:10px 0}
-.hero-card strong{font-size:28px}
-section{padding:68px 0}
-.section-title{text-align:center;font-size:38px;text-transform:uppercase;margin-bottom:10px}
-.section-sub{text-align:center;color:#555;margin-bottom:38px}
-.services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.service{border:1px solid #ddd;background:#fafafa;padding:24px;border-radius:10px;transition:.2s}
-.service:hover{transform:translateY(-3px);box-shadow:0 8px 20px #0001}
-.icon{width:48px;height:48px;border-radius:50%;background:#111;color:#fff;display:grid;place-items:center;font-size:23px;margin-bottom:15px}
-.service h3{font-size:19px;margin-bottom:8px}
-.service p{color:#555;font-size:14px}
-.about{background:#111;color:#fff}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center}
-.about h2{font-size:42px;line-height:1.05;margin-bottom:16px}
-.checks{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:25px}
-.check{background:#222;border:1px solid #444;padding:14px;border-radius:7px;font-weight:700}
-.contact{text-align:center;background:#f2f2f2}
-.phone{font-size:clamp(38px,7vw,70px);font-weight:900;letter-spacing:2px;margin:15px 0}
-.contact p{color:#555;margin-bottom:24px}
-.flyer{text-align:center}
-.flyer img{max-width:900px;width:100%;border:1px solid #ccc;box-shadow:0 10px 30px #0001}
-footer{background:#111;color:#fff;padding:28px 0;text-align:center}
-footer p{font-size:13px;color:#bbb;margin-top:6px}
+
+:root{
+  --primary:#0879e8;
+  --primary-dark:#0759b8;
+  --secondary:#00b8d9;
+  --navy:#071a33;
+  --dark:#0b2447;
+  --text:#172033;
+  --gray:#64748b;
+  --light:#f4f9ff;
+  --white:#fff;
+  --border:#dbeafe;
+  --shadow:0 10px 30px rgba(7,89,184,.10);
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--text);
+  background:#fff;
+  line-height:1.6;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+.container{
+  width:min(1120px,92%);
+  margin:auto;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+  background:linear-gradient(135deg,#061a35,#0b4380);
+  color:#fff;
+  position:sticky;
+  top:0;
+  z-index:10;
+  box-shadow:0 3px 18px rgba(0,0,0,.15);
+}
+
+.nav{
+  height:76px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  font-weight:900;
+  font-size:22px;
+  letter-spacing:.5px;
+}
+
+.logo span{
+  display:block;
+  font-size:11px;
+  letter-spacing:2px;
+  color:#9ddcff;
+}
+
+nav a{
+  margin-left:28px;
+  font-size:14px;
+  font-weight:700;
+  transition:.2s;
+}
+
+nav a:hover{
+  color:#70d9ff;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  background:
+    radial-gradient(circle at 85% 20%,rgba(0,184,217,.18),transparent 28%),
+    linear-gradient(135deg,#f7fbff,#eaf6ff);
+  padding:78px 0 70px;
+  border-bottom:1px solid #dbeafe;
+}
+
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:50px;
+  align-items:center;
+}
+
+.kicker{
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:2px;
+  color:var(--primary);
+  margin-bottom:14px;
+}
+
+h1{
+  font-size:clamp(42px,6vw,74px);
+  line-height:.95;
+  text-transform:uppercase;
+  margin-bottom:20px;
+  color:var(--navy);
+}
+
+.hero h1 span{
+  display:block;
+  color:var(--primary);
+}
+
+.tagline{
+  font-size:22px;
+  font-style:italic;
+  color:#315577;
+  margin-bottom:26px;
+}
+
+.buttons{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  display:inline-block;
+  padding:14px 23px;
+  border-radius:7px;
+  font-weight:800;
+  border:2px solid var(--primary);
+  transition:.25s;
+}
+
+.btn.dark{
+  background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+  color:#fff;
+  border-color:var(--primary);
+  box-shadow:0 7px 18px rgba(8,121,232,.22);
+}
+
+.btn.dark:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 24px rgba(8,121,232,.30);
+}
+
+.btn.light{
+  background:#fff;
+  color:var(--primary);
+  border-color:#b9dcff;
+}
+
+.btn.light:hover{
+  background:#eaf6ff;
+  transform:translateY(-2px);
+}
+
+/* =========================
+   HERO CARD
+========================= */
+
+.hero-card{
+  background:linear-gradient(145deg,#071a33,#0b4380);
+  color:#fff;
+  padding:34px;
+  border-radius:16px;
+  box-shadow:0 18px 40px rgba(7,50,100,.22);
+  border:1px solid rgba(255,255,255,.12);
+}
+
+.hero-card h2{
+  font-size:26px;
+  margin-bottom:20px;
+}
+
+.hero-card p{
+  margin:12px 0;
+  color:#e8f5ff;
+}
+
+.hero-card strong{
+  font-size:30px;
+  color:#70d9ff;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+section{
+  padding:75px 0;
+}
+
+.section-title{
+  text-align:center;
+  font-size:38px;
+  text-transform:uppercase;
+  margin-bottom:10px;
+  color:var(--navy);
+}
+
+.section-sub{
+  text-align:center;
+  color:var(--gray);
+  margin-bottom:42px;
+}
+
+/* =========================
+   SERVICES
+========================= */
+
+.services{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.service{
+  border:1px solid var(--border);
+  background:#fff;
+  padding:26px;
+  border-radius:12px;
+  transition:.25s;
+  box-shadow:0 4px 16px rgba(7,89,184,.05);
+}
+
+.service:hover{
+  transform:translateY(-6px);
+  box-shadow:var(--shadow);
+  border-color:#9bd3ff;
+}
+
+.icon{
+  width:52px;
+  height:52px;
+  border-radius:12px;
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  color:#fff;
+  display:grid;
+  place-items:center;
+  font-size:23px;
+  margin-bottom:17px;
+  box-shadow:0 7px 16px rgba(8,121,232,.18);
+}
+
+.service h3{
+  font-size:19px;
+  margin-bottom:9px;
+  color:var(--navy);
+}
+
+.service p{
+  color:var(--gray);
+  font-size:14px;
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.about{
+  background:
+    radial-gradient(circle at 10% 20%,rgba(0,184,217,.15),transparent 25%),
+    linear-gradient(135deg,#061a35,#0b4380);
+  color:#fff;
+}
+
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  align-items:center;
+}
+
+.about .kicker{
+  color:#70d9ff;
+}
+
+.about h2{
+  font-size:42px;
+  line-height:1.05;
+  margin-bottom:18px;
+}
+
+.checks{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+  margin-top:25px;
+}
+
+.check{
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.16);
+  padding:15px;
+  border-radius:9px;
+  font-weight:700;
+  transition:.2s;
+}
+
+.check:hover{
+  background:rgba(255,255,255,.14);
+  transform:translateY(-2px);
+}
+
+/* =========================
+   FLYER
+========================= */
+
+.flyer{
+  text-align:center;
+  background:#f8fbff;
+}
+
+.flyer img{
+  max-width:900px;
+  width:100%;
+  border:1px solid #dbeafe;
+  border-radius:12px;
+  box-shadow:0 12px 35px rgba(7,89,184,.12);
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact{
+  text-align:center;
+  background:linear-gradient(135deg,#eaf6ff,#f8fcff);
+}
+
+.contact .section-title{
+  color:var(--navy);
+}
+
+.phone{
+  font-size:clamp(38px,7vw,70px);
+  font-weight:900;
+  letter-spacing:2px;
+  margin:15px 0;
+  color:var(--primary);
+}
+
+.contact p{
+  color:var(--gray);
+  margin-bottom:26px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  background:#061a35;
+  color:#fff;
+  padding:30px 0;
+  text-align:center;
+}
+
+footer strong{
+  color:#fff;
+}
+
+footer p{
+  font-size:13px;
+  color:#9db2c9;
+  margin-top:7px;
+}
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:800px){
- .nav{height:auto;padding:16px 0;gap:12px}
- .logo{font-size:18px}
- nav{display:none}
- .hero-grid,.about-grid{grid-template-columns:1fr}
- .hero{padding:50px 0}
- .services{grid-template-columns:1fr 1fr}
- .checks{grid-template-columns:1fr}
+
+  .nav{
+    height:auto;
+    padding:16px 0;
+    gap:12px;
+  }
+
+  .logo{
+    font-size:18px;
+  }
+
+  nav{
+    display:none;
+  }
+
+  .hero-grid,
+  .about-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero{
+    padding:55px 0;
+  }
+
+  .hero-card{
+    padding:28px;
+  }
+
+  .services{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .checks{
+    grid-template-columns:1fr;
+  }
 }
 
 @media(max-width:520px){
- .services{grid-template-columns:1fr}
- .section-title{font-size:30px}
- .tagline{font-size:18px}
+
+  .services{
+    grid-template-columns:1fr;
+  }
+
+  .section-title{
+    font-size:30px;
+  }
+
+  .tagline{
+    font-size:18px;
+  }
+
+  .hero-card strong{
+    font-size:26px;
+  }
+
+  section{
+    padding:60px 0;
+  }
 }
+
 </style>
+
 </head>
 
 <body>
 
 <header>
+
   <div class="container nav">
+
     <div class="logo">
       VENKATESWARA
       <span>AC REPAIR &amp; SERVICE</span>
@@ -127,15 +517,24 @@ footer p{font-size:13px;color:#bbb;margin-top:6px}
       <a href="#about">Why Us</a>
       <a href="#contact">Contact</a>
     </nav>
+
   </div>
+
 </header>
+
 
 <main>
 
+<!-- =========================
+     HERO SECTION
+========================= -->
+
 <section class="hero">
+
   <div class="container hero-grid">
 
     <div>
+
       <div class="kicker">
         VIJAYAWADA • RESIDENTIAL • COMMERCIAL • ALL TYPES OF AC SERVICES
       </div>
@@ -156,6 +555,7 @@ footer p{font-size:13px;color:#bbb;margin-top:6px}
       </p>
 
       <div class="buttons">
+
         <a class="btn dark" href="tel:9110313148">
           📞 Call Now
         </a>
@@ -166,10 +566,14 @@ footer p{font-size:13px;color:#bbb;margin-top:6px}
            rel="noopener">
           WhatsApp
         </a>
+
       </div>
+
     </div>
 
+
     <div class="hero-card">
+
       <h2>Your Comfort, Our Priority</h2>
 
       <p>✓ Reliable Service</p>
@@ -177,17 +581,25 @@ footer p{font-size:13px;color:#bbb;margin-top:6px}
       <p>✓ Reasonable Price</p>
       <p>✓ Quick Response</p>
 
-      <hr style="border:0;border-top:1px solid #555;margin:20px 0">
+      <hr style="border:0;border-top:1px solid #315577;margin:20px 0">
 
       <div>Contact Now</div>
+
       <strong>9110313148</strong>
+
     </div>
 
   </div>
+
 </section>
 
 
+<!-- =========================
+     SERVICES
+========================= -->
+
 <section id="services">
+
   <div class="container">
 
     <h2 class="section-title">
@@ -198,71 +610,109 @@ footer p{font-size:13px;color:#bbb;margin-top:6px}
       Complete AC repair, installation and maintenance services for homes and offices
     </p>
 
+
     <div class="services">
 
       <article class="service">
+
         <div class="icon">⚒</div>
+
         <h3>AC Installation / Uninstallation</h3>
+
         <p>
           Safe and professional AC installation and removal services
           for residential and commercial spaces.
         </p>
+
       </article>
 
+
       <article class="service">
+
         <div class="icon">❄</div>
+
         <h3>AC Gas Filling / Charging</h3>
+
         <p>
           AC gas charging service to help restore proper cooling
           performance when refrigerant levels are low.
         </p>
+
       </article>
 
+
       <article class="service">
+
         <div class="icon">⚙</div>
+
         <h3>AC Repair &amp; Servicing</h3>
+
         <p>
           Diagnosis and repair for common AC faults and
           performance problems.
         </p>
+
       </article>
 
+
       <article class="service">
+
         <div class="icon">🧹</div>
+
         <h3>AC Cleaning &amp; Maintenance</h3>
+
         <p>
           Cleaning and routine maintenance to keep your AC
           working efficiently.
         </p>
+
       </article>
 
+
       <article class="service">
+
         <div class="icon">▣</div>
+
         <h3>AC General Service</h3>
+
         <p>
           Regular AC service for better cooling, cleanliness
           and dependable operation.
         </p>
+
       </article>
 
+
       <article class="service">
+
         <div class="icon">✳</div>
+
         <h3>AC Cooling Problem Repair</h3>
+
         <p>
           Service for weak cooling and other common AC
           cooling issues.
         </p>
+
       </article>
 
     </div>
+
   </div>
+
 </section>
 
 
+<!-- =========================
+     WHY CHOOSE US
+========================= -->
+
 <section id="about" class="about">
+
   <div class="container about-grid">
 
     <div>
+
       <div class="kicker">
         WHY CHOOSE US
       </div>
@@ -272,27 +722,41 @@ footer p{font-size:13px;color:#bbb;margin-top:6px}
         Healthy Life.
       </h2>
 
-      <p style="color:#ccc">
+      <p style="color:#c9d9e8">
         Quick, dependable AC service at your doorstep in Vijayawada
         with a focus on comfort and customer satisfaction.
       </p>
+
     </div>
+
 
     <div class="checks">
 
       <div class="check">✓ Reliable Service</div>
+
       <div class="check">✓ Expert Technicians</div>
+
       <div class="check">✓ Reasonable Price</div>
+
       <div class="check">✓ Quick Response</div>
+
       <div class="check">✓ Homes &amp; Offices</div>
+
       <div class="check">✓ Customer Satisfaction</div>
 
     </div>
+
   </div>
+
 </section>
 
 
+<!-- =========================
+     FLYER
+========================= -->
+
 <section class="flyer">
+
   <div class="container">
 
     <h2 class="section-title">
@@ -309,10 +773,16 @@ footer p{font-size:13px;color:#bbb;margin-top:6px}
     >
 
   </div>
+
 </section>
 
 
+<!-- =========================
+     CONTACT
+========================= -->
+
 <section id="contact" class="contact">
+
   <div class="container">
 
     <h2 class="section-title">
@@ -341,13 +811,20 @@ footer p{font-size:13px;color:#bbb;margin-top:6px}
       </a>
 
     </div>
+
   </div>
+
 </section>
 
 </main>
 
 
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
+
   <div class="container">
 
     <strong>
@@ -363,7 +840,9 @@ footer p{font-size:13px;color:#bbb;margin-top:6px}
     </p>
 
   </div>
+
 </footer>
+
 
 </body>
 </html>
