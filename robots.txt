@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://yanamadallavenky.github.io/venkateswara-ac-service/sitemap.xml
